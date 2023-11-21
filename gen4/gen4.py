@@ -2,8 +2,9 @@ from helper import *
 
 FILE_DIRECTORY = [
     "gen4data.csv",
+    "Quiz4g.csv",
 ]
-FILE_SELECTOR = 0
+FILE_SELECTOR = 1
 
 datapoint = inputFrom(FILE_DIRECTORY[FILE_SELECTOR])[:100]
 plotDataPoint(datapoint)

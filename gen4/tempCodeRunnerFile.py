@@ -1,0 +1,1 @@
+lotClasifyWave(waveList)
