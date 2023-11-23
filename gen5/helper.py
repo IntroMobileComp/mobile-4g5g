@@ -1,5 +1,6 @@
 from sympy import (
     I,
+    N,
     Expr,
     SparseMatrix,
     cos,
@@ -99,9 +100,17 @@ def plotWave(
         minValue = min(valueList)
         gPanel[panelNumber].plot(timeSeries, valueList, label=f"Sender/Receiver[{i}]")
         gPanel[panelNumber].axhline(
-            y=maxValue, color="red", linestyle="--", label=f"max[{i}]: {maxValue}"
+            y=maxValue,
+            color="red",
+            linestyle="--",
+            label=f"max[{i}]: {N(maxValue)}",
         )
     gPanel[panelNumber].legend()
+
+
+def eulerToComplex(degreePhase: float) -> Expr:
+    radPhase = rad(degreePhase)
+    return cos(radPhase) + I * sin(radPhase)
 
 
 def inputFrom(filename: str, limit: int) -> tuple[list[list[float]], list[float]]:

@@ -2,9 +2,9 @@ from helper import *
 
 FILE_DIRECTORY = [
     "gen5data.csv",
-    ".csv",
+    "quiz5G.csv",
 ]
-FILE_SELECTOR = 0
+FILE_SELECTOR = 1
 
 datapoint, timeSeries = inputFrom(FILE_DIRECTORY[FILE_SELECTOR], limit=100)
 plotWave(datapoint, timeSeries, panelNumber=0, title="What Receiver get.")
@@ -15,11 +15,12 @@ startPhase = [
 ]
 h = Matrix(
     [
-        [simplify("1/2"), simplify("I/3")],
-        [simplify("I/4"), simplify("1/6")],
+        [eulerToComplex(45), eulerToComplex(30) / 2],
+        [eulerToComplex(60) / 2, eulerToComplex(45) / 2],
     ]
 )
 hInv = h.inv()
+print(hInv)
 
 complexValues = complexFrom(datapoint, timeSeries, frequency, startPhase)
 origComplex = reverseComplex(complexValues, hInv)
